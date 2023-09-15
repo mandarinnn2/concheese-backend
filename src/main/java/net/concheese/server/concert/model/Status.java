@@ -1,4 +1,4 @@
-package net.concheese.concert.model;
+package net.concheese.server.concert.model;
 
 public class Status {
 

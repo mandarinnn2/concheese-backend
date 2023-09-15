@@ -1,7 +1,7 @@
-package net.concheese.concert.service;
+package net.concheese.server.concert.service;
 
-import net.concheese.concert.model.Concert;
-import net.concheese.concert.repository.ConcertRepository;
+import net.concheese.server.concert.model.Concert;
+import net.concheese.server.concert.repository.ConcertRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;

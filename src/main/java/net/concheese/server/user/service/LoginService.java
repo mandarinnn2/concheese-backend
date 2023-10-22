@@ -6,7 +6,7 @@ import java.util.Collections;
 import lombok.RequiredArgsConstructor;
 import net.concheese.server.user.model.OAuthAttributes;
 import net.concheese.server.user.model.User;
-import net.concheese.server.user.model.UserSession;
+import net.concheese.server.user.model.LoginSession;
 import net.concheese.server.user.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
+public class LoginService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
 
   private final UserRepository userRepository;
 
@@ -37,7 +37,7 @@ public class UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2U
         oAuth2User.getAttributes());
 
     User user = saveOrUpdate(attributes);
-    httpSession.setAttribute("user", new UserSession(user));
+    httpSession.setAttribute("user", new LoginSession(user));
 
     return new DefaultOAuth2User(
         Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),

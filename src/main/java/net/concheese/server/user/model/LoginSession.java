@@ -4,11 +4,11 @@ import java.io.Serializable;
 import lombok.Getter;
 
 @Getter
-public class UserSession implements Serializable {
+public class LoginSession implements Serializable {
 
   private final String id;
 
-  public UserSession(User user) {
+  public LoginSession(User user) {
     this.id = user.getId();
   }
 

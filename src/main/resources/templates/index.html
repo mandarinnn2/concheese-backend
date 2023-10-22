@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+  <title>Main Page</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+  Logged in as: <span id="user" th:text="${id}">None</span>
+  <a class="btn btn-info active" href="/logout" role="button">Logout</a>
+</div>
+<a class="btn btn-secondary active" href="/oauth2/authorization/naver" role="button"
+   sec:authorize="isAnonymous()">Naver Login</a>
+</body>
